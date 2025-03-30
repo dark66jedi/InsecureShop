@@ -34,8 +34,13 @@ class WebViewActivity : AppCompatActivity() {
             if (uri.path.equals("/web")) {
                 data = intent.data?.getQueryParameter("url")
             } else if (uri.path.equals("/webview")) {
-                if (intent.data!!.getQueryParameter("url")!!.endsWith("insecureshopapp.com")) {
-                    data = intent.data?.getQueryParameter("url")
+                val url = intent.data?.getQueryParameter("url")
+
+                if (url != null) {
+                    val parsedUri = Uri.parse(url)
+                    if (parsedUri.host == "insecureshopapp.com") {
+                        data = url
+                    }
                 }
             }
 
