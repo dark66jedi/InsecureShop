@@ -36,8 +36,9 @@ class LoginActivity : AppCompatActivity() {
         val username = mBinding.edtUserName.text.toString()
         val password = mBinding.edtPassword.text.toString()
 
-        Log.d("userName", username)
-        Log.d("password", password)
+//      Fix for Insecure Logging vulnerability
+//        Log.d("userName", username)
+//        Log.d("passWord", password)
 
 
         var auth = Util.verifyUserNamePassword(username, password)
